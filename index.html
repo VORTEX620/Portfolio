@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piyush Raj — Portfolio</title>
+<meta name="description" content="Piyush Raj — BTech CSE student at LPU. Backend-leaning, DSA in C++, learning full-stack development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-window" id="appWindow">
+
+  <!-- Browser-style title bar -->
+  <div class="title-bar">
+    <div class="traffic-lights">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle file explorer">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="url-bar">
+      <svg class="lock" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      <span>piyushraj.dev</span>
+    </div>
+    <div class="title-bar-right">
+      <span class="kbd">piyush-raj : portfolio</span>
+    </div>
+  </div>
+
+  <!-- Fake menu bar -->
+  <div class="menu-bar">
+    <span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Run</span><span>Terminal</span><span>Help</span>
+  </div>
+
+  <div class="main-body">
+
+    <!-- Activity bar -->
+    <div class="activity-bar">
+      <button class="act-icon active" title="Explorer" aria-label="Explorer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+      </button>
+      <button class="act-icon" title="Search" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="act-icon" title="Source Control" aria-label="Source Control">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="9" r="2.4"/><path d="M6 8.4V15.6M6 6h6a4 4 0 0 1 4 4v-.5"/></svg>
+      </button>
+      <button class="act-icon" title="Extensions" aria-label="Extensions">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></svg>
+      </button>
+      <button class="act-icon act-avatar" id="copilotToggleActivity" title="Piyush's Copilot" aria-label="Piyush's Copilot">PR</button>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span>PORTFOLIO</span>
+      </div>
+      <ul class="file-list" id="fileList">
+        <li data-file="home" class="active">
+          <span class="ficon ficon-tsx">TS</span><span class="fname">home.tsx</span>
+        </li>
+        <li data-file="about">
+          <span class="ficon ficon-html">5</span><span class="fname">about.html</span>
+        </li>
+        <li data-file="projects">
+          <span class="ficon ficon-js">JS</span><span class="fname">projects.js</span>
+        </li>
+        <li data-file="skills">
+          <span class="ficon ficon-json">{ }</span><span class="fname">skills.json</span>
+        </li>
+        <li data-file="contact">
+          <span class="ficon ficon-css">#</span><span class="fname">contact.css</span>
+        </li>
+        <li data-file="readme">
+          <span class="ficon ficon-md">M</span><span class="fname">README.md</span>
+        </li>
+      </ul>
+      <div class="sidebar-divider"></div>
+      <ul class="file-list">
+        <li class="resume-item" id="resumeItem">
+          <span class="ficon ficon-pdf">P</span><span class="fname">Piyush_Raj_Resume.pdf</span>
+          <svg class="dl-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+        </li>
+      </ul>
+
+      <button class="copilot-btn" id="copilotToggle">
+        <span class="spark">✨</span> Piyush's Copilot <span class="ai-badge">AI</span>
+      </button>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Editor -->
+    <div class="editor-area">
+      <div class="tab-bar" id="tabBar"></div>
+      <div class="breadcrumb" id="breadcrumb"></div>
+
+      <div class="content-scroll" id="contentScroll">
+
+        <!-- HOME -->
+        <section class="file-panel active" id="panel-home">
+          <p class="code-comment">// hello world !! welcome to my portfolio</p>
+          <h1 class="display-name">
+            <span class="line1">Piyush</span>
+            <span class="line2">Raj</span>
+          </h1>
+          <div class="hr"></div>
+
+          <div class="badge-row">
+            <span class="chip dot-cyan">Backend&#8209;leaning</span>
+            <span class="chip dot-amber">DSA in C++</span>
+            <span class="chip dot-green">Full&#8209;Stack Learner</span>
+            <span class="chip dot-purple">@ LPU</span>
+          </div>
+
+          <p class="lead">Always <span id="typedWord" class="typed"></span><span class="type-cursor">|</span></p>
+
+          <p class="body-text">
+            I'm a second&#8209;year CSE student who likes making things that <em>work</em> —
+            from an ESP32 rig that watches for hazards before they become one, to backend
+            fundamentals learned one HTTP request at a time. Early in the journey, shipping
+            anyway.
+          </p>
+
+          <div class="cta-row">
+            <button class="btn primary" data-goto="projects">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+              Projects
+            </button>
+            <button class="btn" data-goto="about">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg>
+              About Me
+            </button>
+            <button class="btn" data-goto="contact">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 6 8-6"/></svg>
+              Contact
+            </button>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat"><div class="stat-num">2nd</div><div class="stat-label">Year · BTech CSE</div></div>
+            <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Projects built</div></div>
+            <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Hrs taught Python</div></div>
+            <div class="stat"><div class="stat-num">&infin;</div><div class="stat-label">Curiosity</div></div>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="file-panel" id="panel-about">
+          <p class="code-comment">&lt;!-- about.html · Piyush Raj --&gt;</p>
+          <h1 class="section-title">About Me</h1>
+          <p class="subtle">// who I am · what I'm building · where I study</p>
+
+          <div class="panel-box">
+            <p>Hi! I'm <strong class="hl-cyan">Piyush Raj</strong>, a second&#8209;year
+            <strong class="hl-cyan">Computer Science and Engineering</strong> student at
+            Lovely Professional University with a growing focus on
+            <strong class="hl-amber">backend development</strong> and
+            <strong class="hl-amber">problem solving</strong>. I care more about systems
+            that hold up than systems that look flashy — code that handles the edge case,
+            sensors that catch the hazard, requirements docs that save someone a rewrite
+            later.</p>
+          </div>
+
+          <h2 class="block-title">CURRENT FOCUS</h2>
+          <div class="two-col">
+            <div class="focus-item"><span class="fico">🎯</span> Sharpening DSA fundamentals in C++</div>
+            <div class="focus-item"><span class="fico">🛠️</span> Learning backend basics — APIs, databases, Git</div>
+            <div class="focus-item"><span class="fico">📚</span> Exploring full&#8209;stack dev (Node.js, React)</div>
+            <div class="focus-item"><span class="fico">💬</span> Comfortable with Python, MySQL, MongoDB</div>
+          </div>
+
+          <h2 class="block-title">EDUCATION</h2>
+          <div class="edu-list">
+            <div class="edu-row">
+              <div class="edu-main">
+                <strong>Lovely Professional University</strong>
+                <span class="edu-sub">Bachelor of Technology — Computer Science &amp; Engineering</span>
+              </div>
+              <div class="edu-meta">
+                <span>Phagwara, Punjab</span>
+                <span class="edu-date">Aug 2025 — Present</span>
+              </div>
+            </div>
+            <div class="edu-row">
+              <div class="edu-main">
+                <strong>Daffodils Public School</strong>
+                <span class="edu-sub">Higher Secondary Education</span>
+              </div>
+              <div class="edu-meta">
+                <span></span>
+                <span class="edu-date">May 2023 — Mar 2025</span>
+              </div>
+            </div>
+            <div class="edu-row">
+              <div class="edu-main">
+                <strong>Vidya Niketan</strong>
+                <span class="edu-sub">CBSE</span>
+              </div>
+              <div class="edu-meta">
+                <span></span>
+                <span class="edu-date">Mar 2023</span>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="block-title">CERTIFICATES &amp; ACHIEVEMENTS</h2>
+          <div class="two-col">
+            <div class="focus-item"><span class="fico">📜</span> C Programming Certificate — Neo Browser</div>
+            <div class="focus-item"><span class="fico">📜</span> Python Certificate — Saylor</div>
+            <div class="focus-item"><span class="fico">📜</span> Networking Certificate — Infosys</div>
+            <div class="focus-item"><span class="fico">🏆</span> Hackathon finalist</div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="file-panel" id="panel-projects">
+          <p class="code-comment">// projects.js : things I've built</p>
+          <h1 class="section-title">Projects</h1>
+          <p class="subtle">const projects = [ ...built, ...learning ]</p>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="proj-icon">🌐</div>
+              <div class="proj-tag">EMBEDDED SYSTEMS · IOT · ECE</div>
+              <h3>Multi&#8209;Hazard Disaster Prevention System</h3>
+              <p>An ESP32&#8209;based system that watches for multiple environmental hazards
+              at once — integrated sensors, custom embedded control logic, and real&#8209;time
+              alerts, tested and tuned for detection accuracy and response time.</p>
+              <div class="tag-row">
+                <span>ESP32</span><span>C++</span><span>Sensors</span><span>Embedded Systems</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="proj-icon">📋</div>
+              <div class="proj-tag">DOCUMENTATION · ACADEMIC</div>
+              <h3>Food Delivery App — SRS Document</h3>
+              <p>A complete Software Requirements Specification for a food delivery
+              platform: scope, users, functional and non&#8209;functional requirements,
+              and workflows structured so design and dev can build from it directly.</p>
+              <div class="tag-row">
+                <span>Requirements Engineering</span><span>System Design</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="proj-icon">🤝</div>
+              <div class="proj-tag">COMMUNITY · LPU</div>
+              <h3>Community Development Project</h3>
+              <p>Worked with a team to identify real community needs and plan practical,
+              on&#8209;the&#8209;ground solutions — my first real lesson in shipping
+              something outside a codebase.</p>
+              <div class="tag-row">
+                <span>Teamwork</span><span>Planning</span><span>Leadership</span>
+              </div>
+            </article>
+          </div>
+
+          <p class="note">// more work-in-progress on GitHub — <a href="https://github.com/VORTEX620" target="_blank" rel="noopener">github.com/VORTEX620 ↗</a></p>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="file-panel" id="panel-skills">
+          <p class="code-comment">// skills.json — tech I actually use</p>
+          <h1 class="section-title">Skills</h1>
+          <p class="subtle json-line">{ "status": "second_year", "trajectory": "backend&#8209;leaning full&#8209;stack" }</p>
+
+          <div class="skills-grid">
+            <div class="skill-col">
+              <h2 class="block-title">LANGUAGES</h2>
+              <div class="skill-row" data-pct="80"><span>Python</span><div class="bar"><div class="bar-fill"></div></div><em>80%</em></div>
+              <div class="skill-row" data-pct="75"><span>C++</span><div class="bar"><div class="bar-fill"></div></div><em>75%</em></div>
+              <div class="skill-row" data-pct="65"><span>JavaScript</span><div class="bar"><div class="bar-fill"></div></div><em>65%</em></div>
+              <div class="skill-row" data-pct="65"><span>C</span><div class="bar"><div class="bar-fill"></div></div><em>65%</em></div>
+              <div class="skill-row" data-pct="55"><span>CSS</span><div class="bar"><div class="bar-fill"></div></div><em>55%</em></div>
+            </div>
+            <div class="skill-col">
+              <h2 class="block-title">DATABASES &amp; TOOLS</h2>
+              <div class="skill-row" data-pct="60"><span>MySQL</span><div class="bar"><div class="bar-fill"></div></div><em>60%</em></div>
+              <div class="skill-row" data-pct="55"><span>MongoDB</span><div class="bar"><div class="bar-fill"></div></div><em>55%</em></div>
+              <div class="skill-row" data-pct="70"><span>Git</span><div class="bar"><div class="bar-fill"></div></div><em>70%</em></div>
+              <div class="skill-row" data-pct="70"><span>GitHub</span><div class="bar"><div class="bar-fill"></div></div><em>70%</em></div>
+            </div>
+            <div class="skill-col">
+              <h2 class="block-title">CURRENTLY LEARNING</h2>
+              <div class="pill-list">
+                <span class="pill">Node.js</span>
+                <span class="pill">Express</span>
+                <span class="pill">React</span>
+                <span class="pill">TypeScript</span>
+              </div>
+              <p class="hint-text">// building the full&#8209;stack roadmap, one project at a time</p>
+            </div>
+            <div class="skill-col">
+              <h2 class="block-title">SOFT SKILLS</h2>
+              <div class="pill-list">
+                <span class="pill outline">Problem Solving</span>
+                <span class="pill outline">Team Collaboration</span>
+                <span class="pill outline">Time Management</span>
+                <span class="pill outline">Adaptability</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="file-panel" id="panel-contact">
+          <p class="code-comment">/* contact.css — let's build something */</p>
+          <h1 class="section-title">Contact</h1>
+          <p class="subtle">// open to internships, collabs &amp; good conversations</p>
+
+          <div class="contact-grid">
+            <div>
+              <h2 class="block-title">FIND ME ON</h2>
+              <a class="contact-link" href="mailto:piyush76674@gmail.com">
+                <span class="cl-icon email">✉</span>
+                <span class="cl-text"><strong>EMAIL</strong><em>piyush76674@gmail.com</em></span>
+              </a>
+              <a class="contact-link" href="https://www.linkedin.com/in/piyushraj-dev" target="_blank" rel="noopener">
+                <span class="cl-icon linkedin">in</span>
+                <span class="cl-text"><strong>LINKEDIN</strong><em>linkedin.com/in/piyushraj&#8209;dev</em></span>
+              </a>
+              <a class="contact-link" href="https://github.com/VORTEX620" target="_blank" rel="noopener">
+                <span class="cl-icon github">gh</span>
+                <span class="cl-text"><strong>GITHUB</strong><em>github.com/VORTEX620</em></span>
+              </a>
+              <a class="contact-link" href="tel:+916202476352">
+                <span class="cl-icon phone">☎</span>
+                <span class="cl-text"><strong>PHONE</strong><em>+91 62024 76352</em></span>
+              </a>
+            </div>
+
+            <div>
+              <h2 class="block-title">SEND A MESSAGE</h2>
+              <form id="contactForm" class="contact-form">
+                <label>// YOUR_NAME <span class="req">*</span></label>
+                <input type="text" id="cf-name" placeholder="string" required>
+                <label>// YOUR_EMAIL <span class="req">*</span></label>
+                <input type="email" id="cf-email" placeholder="string" required>
+                <label>// SUBJECT</label>
+                <input type="text" id="cf-subject" placeholder="string">
+                <label>// MESSAGE <span class="req">*</span></label>
+                <textarea id="cf-message" rows="4" placeholder="'''your message'''" required></textarea>
+                <button type="submit" class="btn primary full">→ send_message()</button>
+              </form>
+              <p class="note">// opens your email app with this pre&#8209;filled</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- README -->
+        <section class="file-panel" id="panel-readme">
+          <p class="code-comment"># README.md</p>
+          <h1 class="display-name small">Piyush Raj</h1>
+          <p class="subtle">BTech CSE Student @ LPU · India 🇮🇳</p>
+
+          <div class="badge-row">
+            <span class="chip dot-cyan">Python</span>
+            <span class="chip dot-amber">C++</span>
+            <span class="chip dot-green">JavaScript</span>
+            <span class="chip dot-purple">MySQL</span>
+            <span class="chip dot-cyan">MongoDB</span>
+          </div>
+
+          <h2 class="block-title">💜 ABOUT</h2>
+          <p class="body-text">
+            Hey, Piyush here! Second&#8209;year CS student figuring out backend
+            development one project at a time. I like DSA problems that fight back,
+            systems that don't fall over, and turning "I don't know how this works"
+            into "oh, that's how this works." Taught Python to school kids for 30 hours
+            and enjoyed it more than I expected to. Always up for a good conversation —
+            say hi!
+          </p>
+          <ul class="readme-list">
+            <li>🎯 Sharpening backend fundamentals &amp; DSA in C++</li>
+            <li>🛠️ Learning full&#8209;stack dev — Node.js, Express, React</li>
+            <li>📖 Currently: 2nd year, BTech CSE @ LPU</li>
+            <li>✨ Open to internships &amp; collaborations</li>
+          </ul>
+
+          <h2 class="block-title">STACK</h2>
+          <p class="body-text"><strong>Languages:</strong> Python, C++, JavaScript, C, CSS, SQL</p>
+          <p class="body-text"><strong>Tools:</strong> MySQL, MongoDB, Git, GitHub</p>
+
+          <div class="resume-cta">
+            <a href="Piyush_Raj_Resume.pdf" class="btn primary" download>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+              Download Resume
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <span class="sb-item">🌿 main</span>
+    <span class="sb-item">0 ⚠</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item" id="sbTitle">Piyush's Portfolio</span>
+    <span class="sb-item" id="sbLang">TypeScript React</span>
+    <span class="sb-item">UTF-8</span>
+    <span class="sb-item">Prettier</span>
+    <span class="sb-item">💜 Piyush Dark</span>
+    <span class="sb-item" id="sbClock">00:00</span>
+  </div>
+
+</div>
+
+<!-- Copilot popover -->
+<div class="copilot-pop" id="copilotPop">
+  <div class="copilot-pop-head">✨ Piyush's Copilot</div>
+  <div class="copilot-pop-body">Hey — thanks for stopping by. Explore the files on the left, or just hit Contact if you'd like to talk shop.</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

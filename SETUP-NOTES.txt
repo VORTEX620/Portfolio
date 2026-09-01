@@ -1,0 +1,36 @@
+PIYUSH RAJ — PORTFOLIO SITE
+============================
+
+Files:
+  index.html   — the whole site (structure)
+  style.css    — the "Piyush Dark" theme
+  script.js    — tab switching, typing effect, skill bars, mailto contact form
+
+How to preview it:
+  Just double-click index.html to open it in your browser. Everything
+  (fonts, icons, animations) loads from the internet, so an active
+  connection makes it look right.
+
+How to add your resume:
+  Drop an actual PDF named exactly "Piyush_Raj_Resume.pdf" into this
+  same folder. It's already linked from the sidebar and from the
+  README.md tab's "Download Resume" button — no code changes needed.
+
+How to deploy it for free (pick one):
+  1. GitHub Pages — push this folder to a GitHub repo, then turn on
+     Pages in Settings > Pages > Deploy from branch.
+  2. Netlify / Vercel — drag-and-drop this folder into their web
+     dashboard, or connect your GitHub repo. Both auto-deploy on push.
+  Either way you'll want a repo named something like
+  "piyush-raj-portfolio" — this is what the on-screen breadcrumbs
+  already assume.
+
+Things worth double-checking before you publish:
+  - The skill bar percentages in skills.json (the tab) are just a
+    visual self-rating — nudge them up or down to match how you'd
+    actually rate yourself.
+  - The phone number and email on the contact.css tab are pulled
+    straight from your CV — remove the phone number there if you'd
+    rather not have it public.
+  - Swap "piyushraj.dev" in the fake browser address bar for your
+    real domain once you have one (or your GitHub Pages URL).

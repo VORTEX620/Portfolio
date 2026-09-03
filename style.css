@@ -310,6 +310,18 @@ a { color: inherit; }
 
 .sidebar-divider { height: 1px; background: var(--border-soft); margin: 8px 16px; }
 
+.resume-item-wrap { padding: 0 !important; }
+.resume-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 7px 16px;
+  color: var(--text-dim);
+  text-decoration: none;
+  cursor: pointer;
+}
+.resume-item:hover { background: rgba(255,255,255,0.03); color: var(--text-primary); }
 .resume-item .dl-icon { color: var(--text-faint); flex: none; }
 .resume-item:hover .dl-icon { color: var(--cyan); }
 
